@@ -8,7 +8,7 @@ def sql_start():
     if base:
         print('Data base connected')
     base.execute('CREATE TABLE IF NOT EXISTS menu(img TEXT,name TEXT PRIMARY KEY,description TEXT, price TEXT)')
-    base.execute('CREATE TABLE IF NOT EXISTS admins(name TEXT ,id TEXT PRIMARY KEY)')
+    base.execute('CREATE TABLE IF NOT EXISTS admins(name TEXT ,id INT PRIMARY KEY)')
     base.commit()
 
 async def sql_add_admin(message):
@@ -18,7 +18,8 @@ async def sql_add_admin(message):
 async def sql_show_admins():
     return cur.execute('SELECT * FROM admins').fetchall()
 
-
+async def sql_show_admin_by_id(message):
+    return cur.execute('SELECT id FROM admins WHERE name==?',(message.from_user.username,)).fetchone()
 
 async def sql_add_command(state):
     async with state.proxy() as data:

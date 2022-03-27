@@ -37,7 +37,8 @@ async def make_changes_command(message: types.Message):
 #Начало диалога
 # @dp.message_handler(commands='Загрузить',state=None)
 async def cm_start(message: types.Message):
-    if message.from_user.id in sqlite_db.sql_show_admins():
+    admin = await sqlite_db.sql_show_admin_by_id(message)
+    if message.from_user.id == admin[0]:
         await FSMAdmin.photo.set()
         await bot.send_message(message.from_user.id, 'Загрузи фото')
 
@@ -86,10 +87,10 @@ async def cancel_handler(message: types.Message, state: FSMContext):
     await bot.send_message(message.from_user.id, "OK")
 
 
-async def empty(message: types.Message):
-    if message.from_user.id == ID:
-        await message.answer("Нет такой команды")
-        await message.delete()
+# async def empty(message: types.Message):
+#     if message.from_user.id == ID:
+#         await message.answer("Нет такой команды")
+#         await message.delete()
 
 
 # @dp.callback_query_handler(lambda x: x.data and x.data.startswith('del '))
