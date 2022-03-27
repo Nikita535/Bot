@@ -8,7 +8,7 @@ async def echo_send(message: types.Message):
         i.lower().translate(str.maketrans('', '', string.punctuation))
         for i in message.text.split(' ')
     }.intersection(set(json.load(open('Swear.json')))) != set():
-        await message.reply('Маты запрещены')
+        await message.answer('Маты запрещены')
         await message.delete()
 
 

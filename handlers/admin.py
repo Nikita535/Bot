@@ -8,7 +8,7 @@ from DataBase import sqlite_db
 from KeyBoards import admin_kb
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-ID = None
+# ID = None
 
 class FSMAdmin(StatesGroup):
     photo = State()
@@ -24,18 +24,20 @@ async def make_changes_command(message: types.Message):
         member = await bot.get_chat_member(message.chat.id, message.from_user.id)
         if not member.is_chat_admin():
             raise Exception
-        global ID
-        ID = message.from_user.id
-        await bot.send_message(message.from_user.id,"Что надо, Хозяин??",
-                               reply_markup=admin_kb.button_case_admin)
-        await message.delete()
+        # global ID
+        try:
+            await sqlite_db.sql_add_admin(message)
+            await bot.send_message(message.from_user.id, "Что надо, Хозяин??",
+                                   reply_markup=admin_kb.button_case_admin)
+        except Exception:
+            await message.reply("Вы уже являетесь Модератором")
     except Exception:
         await message.reply("Вы не являетесь Модератором")
 
 #Начало диалога
 # @dp.message_handler(commands='Загрузить',state=None)
 async def cm_start(message: types.Message):
-    if message.from_user.id == ID:
+    if message.from_user.id in sqlite_db.sql_show_admins():
         await FSMAdmin.photo.set()
         await bot.send_message(message.from_user.id, 'Загрузи фото')
 
