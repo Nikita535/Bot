@@ -3,7 +3,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemo
 b1 = KeyboardButton('/working_hours')
 b2 = KeyboardButton('/geolocation')
 b3 = KeyboardButton('/menu')
-b4 = KeyboardButton('/contact_us')
+b4 = KeyboardButton('/moderator_mode')
 # b4 = KeyboardButton('Поделиться номером', request_contact=True)
 # b5 = KeyboardButton('Поделиться расположением', request_location=True)
 

@@ -8,7 +8,8 @@ from DataBase import sqlite_db
 async def commands_help(message: types.Message):
     message_text1 = 'Вот, что умеет этот бот:\n' \
                    + '/start - начало работы бота\n' \
-                   + '/Moderator - войти в режим модерации бота'
+                   + '/moderators - список модераторов бота\n'\
+                   + '/moderator_mode - войти в режим модерации бота'
     message_text2 = 'Небольшая инструкция:\n'\
                     + 'После команды /start наш бот напишет вам в личные сообщения, но предварительно ему нужно написать любое сообщение!!!\n\n'\
                     + 'В диалоге с ботом появится клавиатура, со следующими командами: working_hours, geolocation, menu.\n\n'\
@@ -56,4 +57,4 @@ def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(pizza_open_command, commands=['working_hours'])
     dp.register_message_handler(pizza_place_command,commands=['geolocation'])
     dp.register_message_handler(pizza_menu_command,commands=['menu'])
-    dp.register_message_handler(show_moderator,commands=['contact_us'])
+    dp.register_message_handler(show_moderator,commands=['moderators'])
