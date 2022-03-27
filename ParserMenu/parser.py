@@ -42,7 +42,7 @@ def get_first_menu_item():
 
 
     with open("cake_dict.json", "w", encoding='cp1251') as file:
-        json.dump(cake_dict, file, indent=4,ensure_ascii=True)
+        json.dump(cake_dict, file, indent=4,ensure_ascii=False)
 
 def main():
     get_first_menu_item()

@@ -3,6 +3,8 @@ from create_bot import dp, bot
 from KeyBoards import kb_client
 from aiogram.types import ReplyKeyboardRemove
 from DataBase import sqlite_db
+import json
+
 
 
 async def commands_help(message: types.Message):
@@ -49,7 +51,10 @@ async def show_moderator(message: types.Message):
         message_text += f'@{ret[0]}\n'
     await message.answer(message_text)
 
-
+async def show_menu(message: types.Message):
+    with open('../ParserMenu/cake_dict.json', encoding="windows-1251") as file:
+        cake_dict = json.load(file)
+    print(cake_dict)
 
 def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(commands_start, commands=['start'])
@@ -58,3 +63,4 @@ def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(pizza_place_command,commands=['geolocation'])
     dp.register_message_handler(pizza_menu_command,commands=['menu'])
     dp.register_message_handler(show_moderator,commands=['moderators'])
+    dp.register_message_handler(show_menu, commands=['show_menu'])
