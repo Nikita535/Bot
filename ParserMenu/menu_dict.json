@@ -1,0 +1,302 @@
+{
+    "c8915e768b0dede2bb60caffc6643cb": {
+        "name": "Пай из хурмы",
+        "price": "390 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210520/c8915e768b0dede2bb60caffc6643cb6.jpg",
+        "photo_name": "c8915e768b0dede2bb60caffc6643cb6.jpg"
+    },
+    "44821a159af07e3b67791abc2118fc1": {
+        "name": "Шоколад - солёная карамель",
+        "price": "590 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210823/44821a159af07e3b67791abc2118fc13.jpg",
+        "photo_name": "44821a159af07e3b67791abc2118fc13.jpg"
+    },
+    "dd0af7da0dcbda732fdf2f374c0e54a": {
+        "name": "Матча - банан",
+        "price": "590 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210823/dd0af7da0dcbda732fdf2f374c0e54a6.jpg",
+        "photo_name": "dd0af7da0dcbda732fdf2f374c0e54a6.jpg"
+    },
+    "dc26c6d79c9bbc8a9332988fe1a89a3": {
+        "name": "Пирожное \"Сметанник\"",
+        "price": "350 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/dc26c6d79c9bbc8a9332988fe1a89a34.jpg",
+        "photo_name": "dc26c6d79c9bbc8a9332988fe1a89a34.jpg"
+    },
+    "c12f7bf1e08a2cd7ebc9d5f8dc53c33": {
+        "name": "Пирожное \"Вишня-шоколад\"",
+        "price": "350 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/c12f7bf1e08a2cd7ebc9d5f8dc53c338.jpg",
+        "photo_name": "c12f7bf1e08a2cd7ebc9d5f8dc53c338.jpg"
+    },
+    "d445f9d53c6f600dce38ff1460f57ac": {
+        "name": "Пирожное \"Ананас-Киви-Клубника\"",
+        "price": "450 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/d445f9d53c6f600dce38ff1460f57acd.jpg",
+        "photo_name": "d445f9d53c6f600dce38ff1460f57acd.jpg"
+    },
+    "5422f1a962abd5f2f79e1d46a254322": {
+        "name": "Пирожное \"Имбирная груша\"",
+        "price": "450 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20220211/5422f1a962abd5f2f79e1d46a2543222.jpg",
+        "photo_name": "5422f1a962abd5f2f79e1d46a2543222.jpg"
+    },
+    "210cac6cad3452f7ad6d1095d14345d": {
+        "name": "Павлова с черникой",
+        "price": "370 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/210cac6cad3452f7ad6d1095d14345db.jpg",
+        "photo_name": "210cac6cad3452f7ad6d1095d14345db.jpg"
+    },
+    "29b4deb9d5271ba0fc0387e9ade6593": {
+        "name": "Пирожное \"Инжир-малина\"",
+        "price": "450 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/29b4deb9d5271ba0fc0387e9ade65933.jpg",
+        "photo_name": "29b4deb9d5271ba0fc0387e9ade65933.jpg"
+    },
+    "03298e78457badce0c5538321a53456": {
+        "name": "Малиновый чизкейк",
+        "price": "390 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/03298e78457badce0c5538321a534566.jpg",
+        "photo_name": "03298e78457badce0c5538321a534566.jpg"
+    },
+    "5126b67ea0661212971955198e27c70": {
+        "name": "Маракуйя с шисо",
+        "price": "390 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/5126b67ea0661212971955198e27c702.jpg",
+        "photo_name": "5126b67ea0661212971955198e27c702.jpg"
+    },
+    "e564e7305cdddea656798a60460ef36": {
+        "name": "Чизкейк с фундуком",
+        "price": "390 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/e564e7305cdddea656798a60460ef362.jpg",
+        "photo_name": "e564e7305cdddea656798a60460ef362.jpg"
+    },
+    "f3be924ed37e4bd58c875520e8cae0d": {
+        "name": "Торт \"Тирамису\"",
+        "price": "2500 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20220120/f3be924ed37e4bd58c875520e8cae0d7.jpg",
+        "photo_name": "f3be924ed37e4bd58c875520e8cae0d7.jpg"
+    },
+    "461ef7f15faacd75522ea0fe639fc56": {
+        "name": "Торт \"Медовик\"",
+        "price": "2000 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20191004/461ef7f15faacd75522ea0fe639fc56e.JPG",
+        "photo_name": "461ef7f15faacd75522ea0fe639fc56e.JPG"
+    },
+    "d3f2857aaf7bf80d24daf597a06c54b": {
+        "name": "Сметанник",
+        "price": "1700 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/d3f2857aaf7bf80d24daf597a06c54b4.jpg",
+        "photo_name": "d3f2857aaf7bf80d24daf597a06c54b4.jpg"
+    },
+    "9243e030e1654f4e059214572e18b4b": {
+        "name": "Торт \"Красный бархат\"",
+        "price": "1900 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/9243e030e1654f4e059214572e18b4b6.jpg",
+        "photo_name": "9243e030e1654f4e059214572e18b4b6.jpg"
+    },
+    "946fab6f300776120a01847521f33fc": {
+        "name": "Торт \"Малина-йогурт\"",
+        "price": "1200 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20220119/946fab6f300776120a01847521f33fcf.JPG",
+        "photo_name": "946fab6f300776120a01847521f33fcf.JPG"
+    },
+    "a56f7961e2d812211d2907f9c820d42": {
+        "name": "Торт «Малиновый чизкейк»",
+        "price": "2100 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/a56f7961e2d812211d2907f9c820d42c.jpg",
+        "photo_name": "a56f7961e2d812211d2907f9c820d42c.jpg"
+    },
+    "8a284991fa4c1d0cb2f9789022700f0": {
+        "name": "Торт \"Лаванда -Черная смородина\"",
+        "price": "1900 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/8a284991fa4c1d0cb2f9789022700f06.jpg",
+        "photo_name": "8a284991fa4c1d0cb2f9789022700f06.jpg"
+    },
+    "d9231ace32bb07e7eec504dea42baa0": {
+        "name": "Торт \"Пралине-ваниль\"",
+        "price": "1900 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/d9231ace32bb07e7eec504dea42baa05.jpg",
+        "photo_name": "d9231ace32bb07e7eec504dea42baa05.jpg"
+    },
+    "c8caed1407eee6d478ec5cf88635077": {
+        "name": "Торт \"Ваниль-хурма\"",
+        "price": "1900 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20200225/c8caed1407eee6d478ec5cf886350771.jpg",
+        "photo_name": "c8caed1407eee6d478ec5cf886350771.jpg"
+    },
+    "ac61a15420440a540b851cce69072f0": {
+        "name": "Орешки с соленой карамелью",
+        "price": "270 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/ac61a15420440a540b851cce69072f0f.jpg",
+        "photo_name": "ac61a15420440a540b851cce69072f0f.jpg"
+    },
+    "01b664529b1363541180291f6171e10": {
+        "name": "Орешки со сгущенкой",
+        "price": "270 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/01b664529b1363541180291f6171e106.jpg",
+        "photo_name": "01b664529b1363541180291f6171e106.jpg"
+    },
+    "2d592d4ad5e8fc7a3cbaf9acbe93669": {
+        "name": "Подарочный набор конфет",
+        "price": "890 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210823/2d592d4ad5e8fc7a3cbaf9acbe93669e.jpg",
+        "photo_name": "2d592d4ad5e8fc7a3cbaf9acbe93669e.jpg"
+    },
+    "8779cc5e026fcb8f2acd3a8e8317f4d": {
+        "name": "Подарочный набор",
+        "price": "890 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/8779cc5e026fcb8f2acd3a8e8317f4d4.jpg",
+        "photo_name": "8779cc5e026fcb8f2acd3a8e8317f4d4.jpg"
+    },
+    "faa15426640d6812aa305ba72f65d4b": {
+        "name": "Конфета \"Соленая карамель\"",
+        "price": "90 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/faa15426640d6812aa305ba72f65d4be.jpg",
+        "photo_name": "faa15426640d6812aa305ba72f65d4be.jpg"
+    },
+    "ed183f88d2269fcdb1e27354536f9a7": {
+        "name": "Конфета \"Кофе-лимон\"",
+        "price": "90 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210519/ed183f88d2269fcdb1e27354536f9a71.jpg",
+        "photo_name": "ed183f88d2269fcdb1e27354536f9a71.jpg"
+    },
+    "41a1f2ecd3570ddde0a66a274581e9b": {
+        "name": "Конфета \"Маракуйя-Банан\"",
+        "price": "90 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/41a1f2ecd3570ddde0a66a274581e9b0.jpg",
+        "photo_name": "41a1f2ecd3570ddde0a66a274581e9b0.jpg"
+    },
+    "f30e6fb5d0c16f080bfd7ea699489e5": {
+        "name": "Сыроедческая конфета \"Клюква-шисо-фисташка\"",
+        "price": "90 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/f30e6fb5d0c16f080bfd7ea699489e5d.jpg",
+        "photo_name": "f30e6fb5d0c16f080bfd7ea699489e5d.jpg"
+    },
+    "e6dccc2daca12bba2290de80b0e878d": {
+        "name": "Конфета \"Клубника-базилик\"",
+        "price": "90 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210519/e6dccc2daca12bba2290de80b0e878d6.jpg",
+        "photo_name": "e6dccc2daca12bba2290de80b0e878d6.jpg"
+    },
+    "879ddad298fa0b8e99a209d818f5999": {
+        "name": "Сыроедческая конфета \"Ореховая\"",
+        "price": "90 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/879ddad298fa0b8e99a209d818f59993.jpg",
+        "photo_name": "879ddad298fa0b8e99a209d818f59993.jpg"
+    },
+    "e779e991bb4de1e3a332e2039a6fcbf": {
+        "name": "Малина-тархун",
+        "price": "90 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/e779e991bb4de1e3a332e2039a6fcbff.jpg",
+        "photo_name": "e779e991bb4de1e3a332e2039a6fcbff.jpg"
+    },
+    "4a3ab228bfaf6cdd0b2cd3e83e2a196": {
+        "name": "Кокос-шоколад",
+        "price": "90 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/4a3ab228bfaf6cdd0b2cd3e83e2a196a.jpg",
+        "photo_name": "4a3ab228bfaf6cdd0b2cd3e83e2a196a.jpg"
+    },
+    "eead7d6177564aa2880c9f08ba7a5fd": {
+        "name": "Цитрусовая фисташка",
+        "price": "90 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/eead7d6177564aa2880c9f08ba7a5fdc.jpg",
+        "photo_name": "eead7d6177564aa2880c9f08ba7a5fdc.jpg"
+    },
+    "19e71e0305e0074a8c458fec760a531": {
+        "name": "Драже \" Шоколад руби с ириской и маракуйей\"",
+        "price": "350 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/19e71e0305e0074a8c458fec760a5315.jpg",
+        "photo_name": "19e71e0305e0074a8c458fec760a5315.jpg"
+    },
+    "efcf6c4b6852352b8d024e58bd897bd": {
+        "name": "Драже \"Фундук\"",
+        "price": "350 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20211230/efcf6c4b6852352b8d024e58bd897bd0.jpg",
+        "photo_name": "efcf6c4b6852352b8d024e58bd897bd0.jpg"
+    },
+    "86643ba10accf29c0ddbabc2d8dcf40": {
+        "name": "Набор макарун",
+        "price": "470, 900 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20180806/86643ba10accf29c0ddbabc2d8dcf409.jpg",
+        "photo_name": "86643ba10accf29c0ddbabc2d8dcf409.jpg"
+    },
+    "165d2bd369d134b85b2ec1074342505": {
+        "name": "Макарони \"Каффир лайм\"",
+        "price": "80 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210519/165d2bd369d134b85b2ec10743425058.jpg",
+        "photo_name": "165d2bd369d134b85b2ec10743425058.jpg"
+    },
+    "ea25bb9e91ff9342f0e91317e66d744": {
+        "name": "Макарони \"Солёная карамель\"",
+        "price": "80 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210519/ea25bb9e91ff9342f0e91317e66d7448.jpg",
+        "photo_name": "ea25bb9e91ff9342f0e91317e66d7448.jpg"
+    },
+    "df834fc5ec07fca0fb3d97c68d48979": {
+        "name": "Макарони \"Фисташка-кардамон\"",
+        "price": "80 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210519/df834fc5ec07fca0fb3d97c68d489796.jpg",
+        "photo_name": "df834fc5ec07fca0fb3d97c68d489796.jpg"
+    },
+    "df7c4bda709ed6db3952eed9b5a92b5": {
+        "name": "Макарони \"Молочный шоколад-маракуйя\"",
+        "price": "80 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210915/df7c4bda709ed6db3952eed9b5a92b57.jpg",
+        "photo_name": "df7c4bda709ed6db3952eed9b5a92b57.jpg"
+    },
+    "d3541602665d4cbcf82e37ec6b7ff50": {
+        "name": "Макарони \"Малина\"",
+        "price": "80 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210915/d3541602665d4cbcf82e37ec6b7ff50f.jpg",
+        "photo_name": "d3541602665d4cbcf82e37ec6b7ff50f.jpg"
+    },
+    "1175df7a25e49dc6222d6125d633739": {
+        "name": "Набор моти",
+        "price": "720, 1200, 2400 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210823/1175df7a25e49dc6222d6125d6337394.jpg",
+        "photo_name": "1175df7a25e49dc6222d6125d6337394.jpg"
+    },
+    "256b93dffc881913e80afa8667fb71c": {
+        "name": "Подарочный сертификат",
+        "price": "1500 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20190813/256b93dffc881913e80afa8667fb71c7.jpg",
+        "photo_name": "256b93dffc881913e80afa8667fb71c7.jpg"
+    },
+    "490da2d9862aa2a085e068287f7eb12": {
+        "name": "Подарочный сертификат",
+        "price": "3000 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20190813/490da2d9862aa2a085e068287f7eb128.jpg",
+        "photo_name": "490da2d9862aa2a085e068287f7eb128.jpg"
+    },
+    "7660da4578955df2a4b2b6669a03a01": {
+        "name": "Подарочный сертификат",
+        "price": "5000 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20190813/7660da4578955df2a4b2b6669a03a01e.jpg",
+        "photo_name": "7660da4578955df2a4b2b6669a03a01e.jpg"
+    },
+    "c9964adb64ec6360162f82c23eaa641a": {
+        "name": "ANCHAN TEA",
+        "price": "564 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210402/c9964adb64ec6360162f82c23eaa641a.jpeg",
+        "photo_name": "c9964adb64ec6360162f82c23eaa641a.jpeg"
+    },
+    "3f01e8bd33d4837e6aff28a6c9d66cac": {
+        "name": "ENERGY TEA",
+        "price": "368 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210402/3f01e8bd33d4837e6aff28a6c9d66cac.jpeg",
+        "photo_name": "3f01e8bd33d4837e6aff28a6c9d66cac.jpeg"
+    },
+    "33e038a7a9476d2009a5c616ec0f78ac": {
+        "name": "RELAX TEA",
+        "price": "368 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210402/33e038a7a9476d2009a5c616ec0f78ac.jpeg",
+        "photo_name": "33e038a7a9476d2009a5c616ec0f78ac.jpeg"
+    },
+    "b31d60e5089d38f17345aeaa8ca0dd8c": {
+        "name": "DETOX TEA",
+        "price": "334 руб.",
+        "photo_link": "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/images/w500-h500/20210402/b31d60e5089d38f17345aeaa8ca0dd8c.jpeg",
+        "photo_name": "b31d60e5089d38f17345aeaa8ca0dd8c.jpeg"
+    }
+}
