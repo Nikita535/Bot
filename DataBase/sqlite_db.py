@@ -51,7 +51,7 @@ async def sql_read2():
 
 
 async def sql_delete_command(data):
-    cur.execute('DELETE FROM menu WHERE img == ?', (data,))
+    cur.execute('DELETE FROM menu WHERE name == ?', (data,))
     base.commit()
 
 
