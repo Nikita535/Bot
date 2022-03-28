@@ -30,7 +30,9 @@ def sql_add_from_json():
     with open('./ParserMenu/menu_dict.json', encoding="utf-8") as file:
         menu_dict = json.load(file)
         for k, v in menu_dict.items():
-            cur.execute('INSERT INTO menu VALUES (?,?,?)',(str(v['name']),str(v['photo_name']),str(v['price'])))
+            item = cur.execute('SELECT img FROM menu WHERE img==?',(str(v['photo_name']),)).fetchone()
+            if not item[0]:
+                cur.execute('INSERT INTO menu VALUES (?,?,?)',(str(v['name']),str(v['photo_name']),str(v['price'])))
     base.commit()
 async def sql_read(message):
     if len(cur.execute('SELECT * FROM menu').fetchall())==0:
@@ -40,7 +42,7 @@ async def sql_read(message):
             photopath = open("./ParserMenu/pics/" + ret[1], 'rb')
         else:
             photopath = ret[1]
-        await bot.send_photo(message.from_user.id, photopath, f'{i}{ret[0]}\nЦена {ret[-1]}')
+        await bot.send_photo(message.from_user.id, photopath, f'{ret[0]}\nЦена {ret[-1]}')
 
 
 async def sql_read2():
