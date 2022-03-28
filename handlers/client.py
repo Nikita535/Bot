@@ -1,3 +1,5 @@
+import os
+
 from aiogram import types, Dispatcher
 from create_bot import dp, bot
 from KeyBoards import kb_client
@@ -59,6 +61,17 @@ async def show_menu(message: types.Message):
         for k, v in cake_dict.items():
             menu += f"{v['name']}\n{v['desc']}\n{v['price']}\n\n"
         await bot.send_message(message.from_user.id, menu)
+
+
+async def show_menu(message: types.Message):
+    with open('./ParserMenu/menu_dict.json', encoding="utf-8") as file:
+        menu_dict= json.load(file)
+
+        for k, v in menu_dict.items():
+            photo=v['photo_name']
+            photopath = open("./ParserMenu/pics/"+photo,'rb')
+            menu = f"{v['name']}\n{v['price']}\n\n"
+            await bot.send_photo(message.from_user.id,photopath, menu)
 
 
 
