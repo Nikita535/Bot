@@ -52,9 +52,16 @@ async def show_moderator(message: types.Message):
     await message.answer(message_text)
 
 async def show_menu(message: types.Message):
-    with open('../ParserMenu/cake_dict.json', encoding="windows-1251") as file:
+    with open('./ParserMenu/cake_dict.json', encoding="windows-1251") as file:
         cake_dict = json.load(file)
-    print(cake_dict)
+
+        menu = ''
+        for k, v in cake_dict.items():
+            menu += f"{v['name']}\n{v['desc']}\n{v['price']}\n\n"
+        await bot.send_message(message.from_user.id, menu)
+
+
+
 
 def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(commands_start, commands=['start'])

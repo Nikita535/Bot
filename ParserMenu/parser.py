@@ -6,46 +6,48 @@ from bs4 import BeautifulSoup
 
 def get_first_menu_item():
     headers = {
-        "user-agent" : "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Mobile Safari/537.36"
+        "user-agent" : "user-agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Mobile Safari/537.36"
     }
-    url = "https://cafe-anderson.ru/cakes/"
+    url = "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/menu"
     r = requests.get(url=url, headers=headers)
 
     soup = BeautifulSoup(r.text, "lxml")
-    catalog_list = soup.find_all("ul", class_="catalog-list catalog-col-4")
+    menu = soup.find_all("div", class_="menu-items-holder")
 
-    # print(catalog_list[0])
+    menu_dict = {}
 
-    cake_dict = {}
+    for item in menu:
+        item = item.find_all("div", class_="catalogue__item")
+        for i in item:
+            i_name = i.find("div", class_="catalogue__item-title").text.strip()
+            i_price = i.find("div", class_="catalogue__item-price").text.strip()
 
-    for card in catalog_list:
-        cake = card.find_all("li", class_="catalog-list__item")
-        for c in cake:
-            card_name = c.find("div", class_="c-card-catalog-3__title js-show-pie-order").text
-            card_desc = c.find("div", class_="c-card-catalog-3__weight").text
-            card_price = c.find("div", class_="").text[12:-1]
-            card_link_photo_ = str(c.find("div", class_="c-card-catalog-3__img"))
+            i_photo_link_ = str(i.find("div", class_="catalogue__item-pic"))
+            i_photo_link = i_photo_link_[i_photo_link_.find('(')+1:i_photo_link_.find(')')]
 
-            card_link_photo = card_link_photo_[card_link_photo_.find('(')+1:card_link_photo_.find(')')]
+            i_link_photo_id = i_photo_link.split("/")[-1]
+            i_link_photo_id = i_link_photo_id[:-5]
 
-            card_link_photo_id = card_link_photo.split("/")[-1]
-            card_link_photo_id = card_link_photo_id[:-4]
+            # print(f"{i_name} | {i_price} | {i_photo_link} | {i_link_photo_id}")
 
-            cake_dict[card_link_photo_id] = {
-                "name": card_name,
-                "desc": card_desc,
-                "price": card_price,
-                "card_link_photo": card_link_photo
+
+            menu_dict[i_link_photo_id] = {
+                "name": i_name,
+                "price": i_price,
+                "i_photo_link": i_photo_link
             }
 
-            print(f"{card_name} | {card_desc} | {card_price} | {card_link_photo}")
+
+    print(menu_dict)
+
+    with open("menu_dict.json", "w",  encoding='utf-8') as file:
+        json.dump(menu_dict, file, indent=4, ensure_ascii=False)
 
 
-    with open("cake_dict.json", "w", encoding='cp1251') as file:
-        json.dump(cake_dict, file, indent=4,ensure_ascii=False)
 
 def main():
     get_first_menu_item()
+
 
 
 if __name__== '__main__':
