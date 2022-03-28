@@ -23,12 +23,13 @@ def get_first_menu_item():
 
             i_photo_link_ = str(i.find("div", class_="catalogue__item-pic"))
 
-            i_photo_link = "https://забылисахар.рф" + i_photo_link_[i_photo_link_.find('(') + 1:i_photo_link_.find(')')]
+            i_photo_link = "https://xn--80aaac2aiu7bg5b9c.xn--p1ai" + i_photo_link_[i_photo_link_.find('(') + 1:i_photo_link_.find(')')]
 
             i_photo_name= i_photo_link_[i_photo_link_.find('(') + 1:i_photo_link_.find(')')]
             i_photo_name =i_photo_name[i_photo_name.rfind('/')+1:]
 
             img_data = requests.get(i_photo_link, verify=False).content
+
             with open('ParserMenu/pics/' + i_photo_name,'wb') as handler:
                 handler.write(img_data)
 

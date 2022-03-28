@@ -31,7 +31,7 @@ def sql_add_from_json():
         menu_dict = json.load(file)
         for k, v in menu_dict.items():
             item = cur.execute('SELECT img FROM menu WHERE img==?',(str(v['photo_name']),)).fetchone()
-            if not item[0]:
+            if item == None:
                 cur.execute('INSERT INTO menu VALUES (?,?,?)',(str(v['name']),str(v['photo_name']),str(v['price'])))
     base.commit()
 async def sql_read(message):
@@ -51,5 +51,9 @@ async def sql_read2():
 
 
 async def sql_delete_command(data):
-    cur.execute('DELETE FROM menu WHERE name == ?', (data,))
+    cur.execute('DELETE FROM menu WHERE img == ?', (data,))
     base.commit()
+
+
+async def sql_test():
+    return cur.execute("SELECT * FROM menu WHERE name==?",('/Удалить',)).fetchone()

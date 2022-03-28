@@ -7,6 +7,8 @@ from aiogram.dispatcher.filters import Text
 from DataBase import sqlite_db
 from KeyBoards import admin_kb
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+import time
+
 
 # ID = None
 
@@ -105,9 +107,23 @@ async def del_callback_run(callback_query: types.CallbackQuery):
 # @dp.message_handler(commands="Удалить")
 async def delete_item(message: types.Message):
     read = await sqlite_db.sql_read2()
-    for ret in read:
-        await bot.send_photo(message.from_user.id,ret[0],f'{ret[1]}\nОписание: {ret[2]}\nЦена {ret[-1]}')
-        await bot.send_message(message.from_user.id,text="^^^",reply_markup=InlineKeyboardMarkup().add(InlineKeyboardButton(f'Удалить {ret[1]}',callback_data=f'{ret[1]}')))
+    t = 0
+    # for ret in read:
+    #     t+=1
+    #     if t == 10:
+    #         time.sleep(4)
+    #         t=0
+    #     if str(ret[1]).find('.')!=-1 :
+    #         photopath = open("./ParserMenu/pics/" + ret[1], 'rb')
+    #     else:
+    #         photopath = ret[1]
+    #     await bot.send_photo(message.from_user.id, photopath, f'{ret[0]}\nЦена {ret[-1]}')
+    #     await bot.send_message(message.from_user.id,text="^^^", reply_markup=InlineKeyboardMarkup().add(InlineKeyboardButton(f'Удалить {ret[0]}',callback_data=f'{ret[1]}')))
+    test = await sqlite_db.sql_test()
+    await bot.send_photo(message.from_user.id, test[1], f'{test[0]}\nЦена {test[-1]}')
+    await bot.send_message(message.from_user.id, text="^^^", reply_markup=InlineKeyboardMarkup().add(
+        InlineKeyboardButton(f'Удалить {test[0]}', callback_data=f'{test[1]}')))
+
 
 def register_handlers_admin(dp: Dispatcher):
     dp.register_message_handler(cm_start, commands=["Загрузить"], state=None)
