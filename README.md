@@ -1,26 +1,24 @@
-<p align="center">BotTRPP Bot-service for Telegram</p>
+BotTRPP Bot-service for Telegram
 =============================
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Computer+science+student)](https://git.io/typing-svg)
 
 
-<p align="center">What is this bot for?</p>
+What is this bot for?
 ---------------------
 When developing our bot, we chose the theme of remote customer service 
 of the restaurant with the possibility of moderation of some components of the institution itself.
 
 ---
 
-<p align="center">What can this bot do?</p>
+What can this bot do?
 ---------------------
 When developing our bot service, we wanted to be able to add our bot to the chat of a conditional restaurant, from which users could access it.
 
 ---
 
-<p align="center">Programming languages used when writing a project.</p>
+Programming languages used when writing a project.
 ---------------------------
-
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Nikita535)](https://github.com/Nikita535/Bot)
-
 
 The main programming language, as you can see, is python. We chose this particular language because it is the most suitable for writing bots for Telegram.
 
@@ -35,13 +33,13 @@ The library is developed and supported by experts from the python community. The
 
 ---------------
 
-<p align="center">Requirements</p>
+Requirements
 -------
 Before starting, make sure you have a Python interpreter of at least version 3.6 installed. версия библиотеки aiogram(1.1).
 
 ---
 
-<p align="center">Cloud service</p>
+Cloud service
 ---
 
 Our bot is located on the cloud service - Heroku, as it seemed to us the most convenient for hosting a python project.
@@ -51,7 +49,7 @@ That is why the file structure of the project contains such files as:
 
 
 ---
-<p align="center">Where can you see our service in action?</p>
+Where can you see our service in action?
 ----
 
 ```
