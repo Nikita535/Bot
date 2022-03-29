@@ -39,6 +39,9 @@ async def pizza_open_command(message: types.Message):
 async def pizza_place_command(message: types.Message):
     await bot.send_message(message.from_user.id, 'пр. Вернадского 78')
 
+async def share_phone_number(message: types.Message):
+    await bot.send_message(message.from_user.id, 'Мы запомнили ваш мобильный телефон, если что-то произойдёт с вашим заказом, мы обязательно вам перезвоним!')
+
 
 # @dp.register_message_handler(commands=['Меню'])
 async def pizza_menu_command(message: types.Message):
@@ -53,14 +56,14 @@ async def show_moderator(message: types.Message):
         message_text += f'@{ret[0]}\n'
     await message.answer(message_text)
 
-async def show_menu(message: types.Message):
-    with open('./ParserMenu/cake_dict.json', encoding="windows-1251") as file:
-        cake_dict = json.load(file)
-
-        menu = ''
-        for k, v in cake_dict.items():
-            menu += f"{v['name']}\n{v['desc']}\n{v['price']}\n\n"
-        await bot.send_message(message.from_user.id, menu)
+# async def show_menu(message: types.Message):
+#     with open('./ParserMenu/cake_dict.json', encoding="windows-1251") as file:
+#         cake_dict = json.load(file)
+#
+#         menu = ''
+#         for k, v in cake_dict.items():
+#             menu += f"{v['name']}\n{v['desc']}\n{v['price']}\n\n"
+#         await bot.send_message(message.from_user.id, menu)
 
 
 async def show_menu(message: types.Message):
@@ -82,5 +85,6 @@ def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(pizza_open_command, commands=['working_hours'])
     dp.register_message_handler(pizza_place_command,commands=['geolocation'])
     dp.register_message_handler(pizza_menu_command,commands=['menu'])
+    dp.register_message_handler(share_phone_number, commands=['Поделиться_номером'])
     dp.register_message_handler(show_moderator,commands=['moderators'])
     dp.register_message_handler(show_menu, commands=['show_menu'])
