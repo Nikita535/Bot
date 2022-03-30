@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataBase.sqlite_db &#8212; Bot 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for DataBase.sqlite_db</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">sqlite_db.py</span>
+<span class="sd">====================================</span>
+<span class="sd">The module for working with DataBase</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span> <span class="k">as</span> <span class="nn">sq</span>
+<span class="kn">from</span> <span class="nn">create_bot</span> <span class="kn">import</span> <span class="n">bot</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<div class="viewcode-block" id="sql_start"><a class="viewcode-back" href="../../DataBase.html#DataBase.sqlite_db.sql_start">[docs]</a><span class="k">def</span> <span class="nf">sql_start</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Connetcing to DB and create tables</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">base</span><span class="p">,</span> <span class="n">cur</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="n">sq</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;./DataBase/rest_cool.db&#39;</span><span class="p">)</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">base</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data base connected&#39;</span><span class="p">)</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE IF NOT EXISTS menu(name TEXT ,img TEXT PRIMARY KEY , price TEXT)&#39;</span><span class="p">)</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE IF NOT EXISTS admins(name TEXT ,id INT PRIMARY KEY)&#39;</span><span class="p">)</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sql_add_admin"><a class="viewcode-back" href="../../DataBase.html#DataBase.sqlite_db.sql_add_admin">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">sql_add_admin</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds admins to DB</span>
+<span class="sd">        :param message:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO admins VALUES (?,?)&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sql_show_admins"><a class="viewcode-back" href="../../DataBase.html#DataBase.sqlite_db.sql_show_admins">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">sql_show_admins</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shows all admins in DB</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM admins&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sql_show_admin_by_id"><a class="viewcode-back" href="../../DataBase.html#DataBase.sqlite_db.sql_show_admin_by_id">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">sql_show_admin_by_id</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shows concrete admin with id</span>
+<span class="sd">        :param message:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id FROM admins WHERE name==?&#39;</span><span class="p">,(</span><span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">username</span><span class="p">,))</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sql_add_command"><a class="viewcode-back" href="../../DataBase.html#DataBase.sqlite_db.sql_add_command">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">sql_add_command</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds menu item to DB</span>
+<span class="sd">        :param state:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">state</span><span class="o">.</span><span class="n">proxy</span><span class="p">()</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO menu VALUES (?,?,?)&#39;</span><span class="p">,</span><span class="nb">tuple</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="n">base</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sql_add_from_json"><a class="viewcode-back" href="../../DataBase.html#DataBase.sqlite_db.sql_add_from_json">[docs]</a><span class="k">def</span> <span class="nf">sql_add_from_json</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds items to DB from json</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./ParserMenu/menu_dict.json&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">menu_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">menu_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT img FROM menu WHERE img==?&#39;</span><span class="p">,(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;photo_name&#39;</span><span class="p">]),))</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO menu VALUES (?,?,?)&#39;</span><span class="p">,(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]),</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;photo_name&#39;</span><span class="p">]),</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])))</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span></div>
+<div class="viewcode-block" id="sql_read"><a class="viewcode-back" href="../../DataBase.html#DataBase.sqlite_db.sql_read">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">sql_read</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shows all menu items</span>
+<span class="sd">        :param message:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM menu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">())</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+       <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="s1">&#39;Меню пустое&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ret</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM menu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">ret</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="o">!=-</span><span class="mi">1</span> <span class="p">:</span>
+            <span class="n">photopath</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./ParserMenu/pics/&quot;</span> <span class="o">+</span> <span class="n">ret</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">photopath</span> <span class="o">=</span> <span class="n">ret</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_photo</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">photopath</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ret</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s1">Цена </span><span class="si">{</span><span class="n">ret</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="sql_read2"><a class="viewcode-back" href="../../DataBase.html#DataBase.sqlite_db.sql_read2">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">sql_read2</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shows all menu items for deleting</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM menu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="sql_delete_command"><a class="viewcode-back" href="../../DataBase.html#DataBase.sqlite_db.sql_delete_command">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">sql_delete_command</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Deletes menu item from DB</span>
+<span class="sd">        :param data:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;DELETE FROM menu WHERE name == ?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">,))</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Bot</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../handlers.html">handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../DataBase.html">DataBase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ParserMenu.html">Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../KeyBoards.html">KeyBoard</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HukoJlauII neketzzh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

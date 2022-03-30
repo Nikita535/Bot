@@ -1,3 +1,8 @@
+"""
+admin_kb.py
+====================================
+The module with admin Keyboard
+"""
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 
 button_load = KeyboardButton('/Загрузить')

@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>handlers.client &#8212; Bot 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for handlers.client</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">client.py</span>
+<span class="sd">====================================</span>
+<span class="sd">The module for client panel in bot.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">aiogram</span> <span class="kn">import</span> <span class="n">types</span><span class="p">,</span> <span class="n">Dispatcher</span>
+<span class="kn">from</span> <span class="nn">create_bot</span> <span class="kn">import</span> <span class="n">dp</span><span class="p">,</span> <span class="n">bot</span>
+<span class="kn">from</span> <span class="nn">KeyBoards</span> <span class="kn">import</span> <span class="n">kb_client</span>
+<span class="kn">from</span> <span class="nn">aiogram.types</span> <span class="kn">import</span> <span class="n">ReplyKeyboardRemove</span>
+<span class="kn">from</span> <span class="nn">DataBase</span> <span class="kn">import</span> <span class="n">sqlite_db</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<div class="viewcode-block" id="commands_help"><a class="viewcode-back" href="../../handlers.html#handlers.client.commands_help">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">commands_help</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shows help commands</span>
+<span class="sd">        :param message:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">message_text1</span> <span class="o">=</span> <span class="s1">&#39;Вот, что умеет этот бот:</span><span class="se">\n</span><span class="s1">&#39;</span> \
+                    <span class="o">+</span> <span class="s1">&#39;/start - начало работы бота</span><span class="se">\n</span><span class="s1">&#39;</span> \
+                    <span class="o">+</span> <span class="s1">&#39;/moderators - список модераторов бота</span><span class="se">\n</span><span class="s1">&#39;</span> \
+                    <span class="o">+</span> <span class="s1">&#39;/moderator_mode - войти в режим модерации бота&#39;</span>
+    <span class="n">message_text2</span> <span class="o">=</span> <span class="s1">&#39;Небольшая инструкция:</span><span class="se">\n</span><span class="s1">&#39;</span> \
+                    <span class="o">+</span> <span class="s1">&#39;После команды /start наш бот напишет вам в личные сообщения, но предварительно ему нужно написать любое сообщение!!!</span><span class="se">\n\n</span><span class="s1">&#39;</span> \
+                    <span class="o">+</span> <span class="s1">&#39;В диалоге с ботом появится клавиатура, со следующими командами: working_hours, geolocation, menu.</span><span class="se">\n\n</span><span class="s1">&#39;</span> \
+                    <span class="o">+</span> <span class="s1">&#39;Удачи!&#39;</span>
+    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">message_text1</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">message_text2</span><span class="p">)</span></div>
+
+
+<span class="c1"># @dp.message_handler(commands=[&#39;start&#39;,&#39;help&#39;])</span>
+<div class="viewcode-block" id="commands_start"><a class="viewcode-back" href="../../handlers.html#handlers.client.commands_start">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">commands_start</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Starts bot work and add keyboard</span>
+<span class="sd">        :param message:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;Открывайте клавиатуру и командуйте</span><span class="se">\U0001F972</span><span class="s1">&#39;</span><span class="p">,</span>
+                               <span class="n">reply_markup</span><span class="o">=</span><span class="n">kb_client</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">message</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">message</span><span class="o">.</span><span class="n">reply</span><span class="p">(</span><span class="s1">&#39;Общение с ботом через ЛС, напишите ему:</span><span class="se">\n</span><span class="s1">@TRPP_123_bot&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1"># @dp.message_handler(commands=[&#39;Режим_работы&#39;])</span>
+<div class="viewcode-block" id="pizza_open_command"><a class="viewcode-back" href="../../handlers.html#handlers.client.pizza_open_command">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">pizza_open_command</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shows working hours</span>
+<span class="sd">        :param message:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;Вс-Чт с 9:00 до 20:00, Пт-Сб с 10:00 До 23:00&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1"># @dp.message_handler(commands=[&#39;Расположение&#39;])</span>
+<div class="viewcode-block" id="pizza_place_command"><a class="viewcode-back" href="../../handlers.html#handlers.client.pizza_place_command">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">pizza_place_command</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shows geolocation</span>
+<span class="sd">        :param message:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;пр. Вернадского 78&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="share_phone_number"><a class="viewcode-back" href="../../handlers.html#handlers.client.share_phone_number">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">share_phone_number</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get phone number</span>
+<span class="sd">        :param message:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                           <span class="s1">&#39;Мы запомнили ваш мобильный телефон, если что-то произойдёт с вашим заказом, мы обязательно вам перезвоним!&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1"># @dp.register_message_handler(commands=[&#39;Меню&#39;])</span>
+<div class="viewcode-block" id="pizza_menu_command"><a class="viewcode-back" href="../../handlers.html#handlers.client.pizza_menu_command">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">pizza_menu_command</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shows menu</span>
+<span class="sd">        :param message:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">await</span> <span class="n">sqlite_db</span><span class="o">.</span><span class="n">sql_read</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="show_moderator"><a class="viewcode-back" href="../../handlers.html#handlers.client.show_moderator">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">show_moderator</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shows moderator accounts</span>
+<span class="sd">        :param message:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="k">await</span> <span class="n">sqlite_db</span><span class="o">.</span><span class="n">sql_show_admins</span><span class="p">()</span>
+    <span class="n">message_text</span> <span class="o">=</span> <span class="s2">&quot;Аккаунты модераторов:</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="k">for</span> <span class="n">ret</span> <span class="ow">in</span> <span class="n">cur</span><span class="p">:</span>
+        <span class="n">message_text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;@</span><span class="si">{</span><span class="n">ret</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="k">await</span> <span class="n">message</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="n">message_text</span><span class="p">)</span></div>
+
+
+<span class="c1"># async def show_menu(message: types.Message):</span>
+<span class="c1">#     with open(&#39;./ParserMenu/cake_dict.json&#39;, encoding=&quot;windows-1251&quot;) as file:</span>
+<span class="c1">#         cake_dict = json.load(file)</span>
+<span class="c1">#</span>
+<span class="c1">#         menu = &#39;&#39;</span>
+<span class="c1">#         for k, v in cake_dict.items():</span>
+<span class="c1">#             menu += f&quot;{v[&#39;name&#39;]}\n{v[&#39;desc&#39;]}\n{v[&#39;price&#39;]}\n\n&quot;</span>
+<span class="c1">#         await bot.send_message(message.from_user.id, menu)</span>
+
+
+<div class="viewcode-block" id="show_menu"><a class="viewcode-back" href="../../handlers.html#handlers.client.show_menu">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">show_menu</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads menu from json</span>
+<span class="sd">        :param message:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./ParserMenu/menu_dict.json&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">menu_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">menu_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">photo</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;photo_name&#39;</span><span class="p">]</span>
+            <span class="n">photopath</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./ParserMenu/pics/&quot;</span> <span class="o">+</span> <span class="n">photo</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+            <span class="n">menu</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_photo</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">photopath</span><span class="p">,</span> <span class="n">menu</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="register_handlers_client"><a class="viewcode-back" href="../../handlers.html#handlers.client.register_handlers_client">[docs]</a><span class="k">def</span> <span class="nf">register_handlers_client</span><span class="p">(</span><span class="n">dp</span><span class="p">:</span> <span class="n">Dispatcher</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Register all handlers to dispatcher</span>
+<span class="sd">        :param dp:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">register_message_handler</span><span class="p">(</span><span class="n">commands_start</span><span class="p">,</span> <span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">register_message_handler</span><span class="p">(</span><span class="n">commands_help</span><span class="p">,</span> <span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;help&#39;</span><span class="p">])</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">register_message_handler</span><span class="p">(</span><span class="n">pizza_open_command</span><span class="p">,</span> <span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;working_hours&#39;</span><span class="p">])</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">register_message_handler</span><span class="p">(</span><span class="n">pizza_place_command</span><span class="p">,</span> <span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;geolocation&#39;</span><span class="p">])</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">register_message_handler</span><span class="p">(</span><span class="n">pizza_menu_command</span><span class="p">,</span> <span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;menu&#39;</span><span class="p">])</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">register_message_handler</span><span class="p">(</span><span class="n">share_phone_number</span><span class="p">,</span> <span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Поделиться_номером&#39;</span><span class="p">])</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">register_message_handler</span><span class="p">(</span><span class="n">show_moderator</span><span class="p">,</span> <span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;moderators&#39;</span><span class="p">])</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">register_message_handler</span><span class="p">(</span><span class="n">show_menu</span><span class="p">,</span> <span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;show_menu&#39;</span><span class="p">])</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Bot</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../handlers.html">handlers</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HukoJlauII neketzzh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

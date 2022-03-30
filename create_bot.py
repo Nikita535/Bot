@@ -1,3 +1,9 @@
+"""
+create_bot.py
+====================================
+The module for creating bot.
+Creates bot and dispatcher
+"""
 from aiogram import Bot
 from aiogram.dispatcher import Dispatcher
 import BotConfig

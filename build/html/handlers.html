@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>handlers &#8212; Bot 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DataBase" href="DataBase.html" />
+    <link rel="prev" title="Welcome to Bot’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="handlers">
+<h1>handlers<a class="headerlink" href="#handlers" title="Permalink to this headline">¶</a></h1>
+<p>Block for working with all handlers in programm</p>
+<span class="target" id="module-handlers.admin"></span><section id="admin-py">
+<h2>admin.py<a class="headerlink" href="#admin-py" title="Permalink to this headline">¶</a></h2>
+<p>The module for admin panel in bot.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="handlers.admin.FSMAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.admin.</span></span><span class="sig-name descname"><span class="pre">FSMAdmin</span></span><a class="reference internal" href="_modules/handlers/admin.html#FSMAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.admin.FSMAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for state Machine</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.admin.cancel_handler">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.admin.</span></span><span class="sig-name descname"><span class="pre">cancel_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.dispatcher.storage.FSMContext</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/admin.html#cancel_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.admin.cancel_handler" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Finish uploading item</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">param state</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.admin.cm_start">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.admin.</span></span><span class="sig-name descname"><span class="pre">cm_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/admin.html#cm_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.admin.cm_start" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Starts uploading of item</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.admin.del_callback_run">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.admin.</span></span><span class="sig-name descname"><span class="pre">del_callback_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback_query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.callback_query.CallbackQuery</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/admin.html#del_callback_run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.admin.del_callback_run" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Deletes the item with inline button</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param callback_query</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.admin.delete_item">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.admin.</span></span><span class="sig-name descname"><span class="pre">delete_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/admin.html#delete_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.admin.delete_item" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Prepares items to delete</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.admin.load_name">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.admin.</span></span><span class="sig-name descname"><span class="pre">load_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.dispatcher.storage.FSMContext</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/admin.html#load_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.admin.load_name" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Loads name to state machine</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">param state</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.admin.load_photo">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.admin.</span></span><span class="sig-name descname"><span class="pre">load_photo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.dispatcher.storage.FSMContext</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/admin.html#load_photo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.admin.load_photo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Loads photo to state machine</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">param state</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.admin.load_price">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.admin.</span></span><span class="sig-name descname"><span class="pre">load_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.dispatcher.storage.FSMContext</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/admin.html#load_price"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.admin.load_price" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Loads price to state machine</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">param state</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.admin.make_changes_command">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.admin.</span></span><span class="sig-name descname"><span class="pre">make_changes_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/admin.html#make_changes_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.admin.make_changes_command" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Checks user for admin role</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.admin.register_handlers_admin">
+<span class="sig-prename descclassname"><span class="pre">handlers.admin.</span></span><span class="sig-name descname"><span class="pre">register_handlers_admin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.dispatcher.dispatcher.Dispatcher</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/admin.html#register_handlers_admin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.admin.register_handlers_admin" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Register all handlers to dispatcher</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param dp</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<span class="target" id="module-handlers.client"></span><section id="client-py">
+<h2>client.py<a class="headerlink" href="#client-py" title="Permalink to this headline">¶</a></h2>
+<p>The module for client panel in bot.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.client.commands_help">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.client.</span></span><span class="sig-name descname"><span class="pre">commands_help</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/client.html#commands_help"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.client.commands_help" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Shows help commands</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.client.commands_start">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.client.</span></span><span class="sig-name descname"><span class="pre">commands_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/client.html#commands_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.client.commands_start" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Starts bot work and add keyboard</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.client.pizza_menu_command">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.client.</span></span><span class="sig-name descname"><span class="pre">pizza_menu_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/client.html#pizza_menu_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.client.pizza_menu_command" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Shows menu</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.client.pizza_open_command">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.client.</span></span><span class="sig-name descname"><span class="pre">pizza_open_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/client.html#pizza_open_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.client.pizza_open_command" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Shows working hours</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.client.pizza_place_command">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.client.</span></span><span class="sig-name descname"><span class="pre">pizza_place_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/client.html#pizza_place_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.client.pizza_place_command" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Shows geolocation</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.client.register_handlers_client">
+<span class="sig-prename descclassname"><span class="pre">handlers.client.</span></span><span class="sig-name descname"><span class="pre">register_handlers_client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.dispatcher.dispatcher.Dispatcher</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/client.html#register_handlers_client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.client.register_handlers_client" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Register all handlers to dispatcher</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param dp</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.client.share_phone_number">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.client.</span></span><span class="sig-name descname"><span class="pre">share_phone_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/client.html#share_phone_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.client.share_phone_number" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Get phone number</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.client.show_menu">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.client.</span></span><span class="sig-name descname"><span class="pre">show_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/client.html#show_menu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.client.show_menu" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Loads menu from json</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.client.show_moderator">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.client.</span></span><span class="sig-name descname"><span class="pre">show_moderator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/client.html#show_moderator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.client.show_moderator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Shows moderator accounts</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<span class="target" id="module-handlers.other"></span><section id="other-py">
+<h2>other.py<a class="headerlink" href="#other-py" title="Permalink to this headline">¶</a></h2>
+<p>The module for extra functions in bot.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.other.echo_send">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">handlers.other.</span></span><span class="sig-name descname"><span class="pre">echo_send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.types.message.Message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/other.html#echo_send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.other.echo_send" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Swear words control</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param message</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="handlers.other.register_handlers_other">
+<span class="sig-prename descclassname"><span class="pre">handlers.other.</span></span><span class="sig-name descname"><span class="pre">register_handlers_other</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">aiogram.dispatcher.dispatcher.Dispatcher</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/handlers/other.html#register_handlers_other"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#handlers.other.register_handlers_other" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Registers hadlers to dispatcher</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param dp</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Bot</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">handlers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#admin-py">admin.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-py">client.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-py">other.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataBase.html">DataBase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParserMenu.html">Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyBoards.html">KeyBoard</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Bot’s documentation!</a></li>
+      <li>Next: <a href="DataBase.html" title="next chapter">DataBase</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, HukoJlauII neketzzh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/handlers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

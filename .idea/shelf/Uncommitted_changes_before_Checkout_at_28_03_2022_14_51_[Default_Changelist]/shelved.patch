@@ -1,0 +1,585 @@
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from aiogram.utils import executor\r\nfrom create_bot import dp\r\nfrom handlers import client, admin, other\r\nfrom DataBase import sqlite_db\r\n\r\nasync def on_startup(_):\r\n    print('Бот вышел в онлайн')\r\n    sqlite_db.sql_start()\r\n\r\nclient.register_handlers_client(dp)\r\nadmin.register_handlers_admin(dp)\r\nother.register_handlers_other(dp)\r\n\r\n\r\n\r\n\r\nexecutor.start_polling(dp, skip_updates=True,on_startup=on_startup)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	(revision 2259267dc9b9c3c298e6b3c2b1991ac0159132c3)
++++ b/main.py	(date 1648458559926)
+@@ -2,10 +2,13 @@
+ from create_bot import dp
+ from handlers import client, admin, other
+ from DataBase import sqlite_db
++from ParserMenu import parser
+ 
+ async def on_startup(_):
+     print('Бот вышел в онлайн')
+     sqlite_db.sql_start()
++    parser.main()
++
+ 
+ client.register_handlers_client(dp)
+ admin.register_handlers_admin(dp)
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(date 1648458559921)
++++ b/.idea/encodings.xml	(date 1648458559921)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/ParserMenu/cake_dict.json" charset="windows-1251" />
++    <file url="file://$PROJECT_DIR$/ParserMenu/parser.py" charset="UTF-8" />
++    <file url="PROJECT" charset="windows-1251" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"922df65f-2e39-43cb-a0bc-8788f4d65b07\" name=\"Default Changelist\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/Bot.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/Bot.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/DataBase/sqlite_db.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/DataBase/sqlite_db.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/handlers/admin.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/handlers/admin.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"26svoBIW0bHE72iPgsuJvmu6oci\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\user\\PycharmProjects\\Bot\\SwearGen\" />\r\n      <recent name=\"C:\\Users\\user\\PycharmProjects\\Bot\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Python.main\">\r\n    <configuration name=\"main\" type=\"PythonConfigurationType\" factoryName=\"Python\" nameIsGenerated=\"true\">\r\n      <module name=\"Bot\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"C:\\Users\\Nekit\\AppData\\Local\\Programs\\Python\\Python39\\python.exe\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/main.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"sqlite_db\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Bot\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/DataBase\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/DataBase/sqlite_db.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"to_json (1)\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Bot\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/SwearGen\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/SwearGen/to_json.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"to_json\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Bot\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"C:\\Users\\user\\PycharmProjects\\Bot\\SwearGen\\to_json.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Python.main\" />\r\n      <item itemvalue=\"Python.sqlite_db\" />\r\n      <item itemvalue=\"Python.to_json\" />\r\n      <item itemvalue=\"Python.to_json (1)\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.sqlite_db\" />\r\n        <item itemvalue=\"Python.to_json (1)\" />\r\n        <item itemvalue=\"Python.to_json\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"922df65f-2e39-43cb-a0bc-8788f4d65b07\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1648225281189</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1648225281189</updated>\r\n      <workItem from=\"1648225311107\" duration=\"19000\" />\r\n      <workItem from=\"1648225334831\" duration=\"9481000\" />\r\n      <workItem from=\"1648302933746\" duration=\"18540000\" />\r\n      <workItem from=\"1648373747145\" duration=\"7315000\" />\r\n      <workItem from=\"1648382154719\" duration=\"3077000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"+-\">\r\n      <created>1648334945658</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1648334945658</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"+-\">\r\n      <created>1648373824085</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1648373824085</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"+-\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"+-\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/Bot$to_json__1_.coverage\" NAME=\"to_json (1) Coverage Results\" MODIFIED=\"1648308907269\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SwearGen\" />\r\n    <SUITE FILE_PATH=\"coverage/Bot$main.coverage\" NAME=\"main Coverage Results\" MODIFIED=\"1648385239933\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$\" />\r\n    <SUITE FILE_PATH=\"coverage/Bot$sqlite_db.coverage\" NAME=\"sqlite_db Coverage Results\" MODIFIED=\"1648313765514\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/DataBase\" />\r\n    <SUITE FILE_PATH=\"coverage/Bot$to_json.coverage\" NAME=\"to_json Coverage Results\" MODIFIED=\"1648229656153\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 2259267dc9b9c3c298e6b3c2b1991ac0159132c3)
++++ b/.idea/workspace.xml	(date 1648468147778)
+@@ -1,12 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="922df65f-2e39-43cb-a0bc-8788f4d65b07" name="Default Changelist" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/Bot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bot.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    <list default="true" id="922df65f-2e39-43cb-a0bc-8788f4d65b07" name="Default Changelist" comment="Connected parser with DB and fixed menu">
+       <change beforePath="$PROJECT_DIR$/DataBase/sqlite_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/sqlite_db.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/handlers/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/admin.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -14,6 +10,11 @@
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="5242f6fcc8b2030f993d9b944a8014e127362034" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+@@ -30,7 +31,7 @@
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TestBot" />
+     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+   </component>
+   <component name="RecentsManager">
+@@ -62,6 +63,28 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
++    <configuration name="parser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="Bot" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="C:\Users\Nekit\AppData\Local\Programs\Python\Python39\python.exe" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ParserMenu" />
++      <option name="IS_MODULE_SDK" value="false" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ParserMenu/parser.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
+     <configuration name="sqlite_db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Bot" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+@@ -133,12 +156,15 @@
+       <item itemvalue="Python.sqlite_db" />
+       <item itemvalue="Python.to_json" />
+       <item itemvalue="Python.to_json (1)" />
++      <item itemvalue="Python.parser" />
+     </list>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Python.sqlite_db" />
++        <item itemvalue="Python.parser" />
+         <item itemvalue="Python.to_json (1)" />
+         <item itemvalue="Python.to_json" />
++        <item itemvalue="Python.sqlite_db" />
++        <item itemvalue="Python.parser" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -155,6 +181,12 @@
+       <workItem from="1648302933746" duration="18540000" />
+       <workItem from="1648373747145" duration="7315000" />
+       <workItem from="1648382154719" duration="3077000" />
++      <workItem from="1648387926109" duration="9000" />
++      <workItem from="1648388069391" duration="6541000" />
++      <workItem from="1648408835266" duration="2853000" />
++      <workItem from="1648411726061" duration="3311000" />
++      <workItem from="1648451575538" duration="4440000" />
++      <workItem from="1648458574541" duration="9526000" />
+     </task>
+     <task id="LOCAL-00001" summary="+-">
+       <created>1648334945658</created>
+@@ -170,20 +202,110 @@
+       <option name="project" value="LOCAL" />
+       <updated>1648373824085</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="ebaniy parser">
++      <created>1648401138483</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1648401138483</updated>
++    </task>
++    <task id="LOCAL-00004" summary="ebaniy parser">
++      <created>1648402571659</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1648402571659</updated>
++    </task>
++    <task id="LOCAL-00005" summary="ebaniy parser">
++      <created>1648409018107</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1648409018107</updated>
++    </task>
++    <task id="LOCAL-00006" summary="Connected parser with DB and fixed menu">
++      <created>1648467799399</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1648467799399</updated>
++    </task>
++    <option name="localTasksCounter" value="7" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="HEAD" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="RECENT_FILTERS">
++      <map>
++        <entry key="Branch">
++          <value>
++            <list>
++              <RecentGroup>
++                <option name="FILTER_VALUES">
++                  <option value="HEAD" />
++                </option>
++              </RecentGroup>
++              <RecentGroup>
++                <option name="FILTER_VALUES">
++                  <option value="master" />
++                </option>
++              </RecentGroup>
++            </list>
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="+-" />
+-    <option name="LAST_COMMIT_MESSAGE" value="+-" />
++    <MESSAGE value="ebaniy parser" />
++    <MESSAGE value="Connected parser with DB and fixed menu" />
++    <option name="LAST_COMMIT_MESSAGE" value="Connected parser with DB and fixed menu" />
++  </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
++          <url>file://$PROJECT_DIR$/handlers/client.py</url>
++          <line>59</line>
++          <option name="timeStamp" value="12" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
++          <url>file://$PROJECT_DIR$/DataBase/sqlite_db.py</url>
++          <line>35</line>
++          <option name="timeStamp" value="15" />
++        </line-breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/Bot$to_json__1_.coverage" NAME="to_json (1) Coverage Results" MODIFIED="1648308907269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SwearGen" />
+-    <SUITE FILE_PATH="coverage/Bot$main.coverage" NAME="main Coverage Results" MODIFIED="1648385239933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
++    <SUITE FILE_PATH="coverage/Bot$main.coverage" NAME="main Coverage Results" MODIFIED="1648467540277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+     <SUITE FILE_PATH="coverage/Bot$sqlite_db.coverage" NAME="sqlite_db Coverage Results" MODIFIED="1648313765514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataBase" />
++    <SUITE FILE_PATH="coverage/Bot$parser.coverage" NAME="parser Coverage Results" MODIFIED="1648461396219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ParserMenu" />
+     <SUITE FILE_PATH="coverage/Bot$to_json.coverage" NAME="to_json Coverage Results" MODIFIED="1648229656153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: handlers/admin.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nfrom aiogram.dispatcher import FSMContext\r\nfrom aiogram.dispatcher.filters.state import State, StatesGroup\r\nfrom aiogram import types, Dispatcher\r\nfrom create_bot import dp,bot\r\nfrom aiogram.dispatcher.filters import Text\r\nfrom DataBase import sqlite_db\r\nfrom KeyBoards import admin_kb\r\nfrom aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton\r\n\r\n# ID = None\r\n\r\nclass FSMAdmin(StatesGroup):\r\n    photo = State()\r\n    name = State()\r\n    description = State()\r\n    price = State()\r\n\r\n\r\n#Получим id текущего модератора\r\n# @dp.register_message_handler(commands=['moderator'],is_chat_admin=True)\r\nasync def make_changes_command(message: types.Message):\r\n    try:\r\n        member = await bot.get_chat_member(message.chat.id, message.from_user.id)\r\n        if not member.is_chat_admin():\r\n            raise Exception\r\n        # global ID\r\n        try:\r\n            await sqlite_db.sql_add_admin(message)\r\n            await bot.send_message(message.from_user.id, \"Что надо, Хозяин??\",\r\n                                   reply_markup=admin_kb.button_case_admin)\r\n        except Exception:\r\n            await message.reply(\"Вы уже являетесь Модератором\")\r\n    except Exception:\r\n        await message.reply(\"Вы не являетесь Модератором\")\r\n\r\n#Начало диалога\r\n# @dp.message_handler(commands='Загрузить',state=None)\r\nasync def cm_start(message: types.Message):\r\n    admin = await sqlite_db.sql_show_admin_by_id(message)\r\n    if message.from_user.id == admin[0]:\r\n        await FSMAdmin.photo.set()\r\n        await bot.send_message(message.from_user.id, 'Загрузи фото')\r\n\r\n#Ловим первый ответ\r\n# @dp.message_handler(content_types=['photo'], state=FSMAdmin.photo)\r\nasync def load_photo(message: types.Message, state: FSMContext):\r\n    async with state.proxy() as data:\r\n        data['data'] = message.photo[0].file_id\r\n    await FSMAdmin.next()\r\n    await bot.send_message(message.from_user.id, 'Теперь введи название')\r\n\r\n#Ловим второй ответ\r\n# @dp.message_handler(state=FSMAdmin.name)\r\nasync def load_name(message: types.Message, state: FSMContext):\r\n    async with state.proxy() as data:\r\n        data['name'] = message.text\r\n    await FSMAdmin.next()\r\n    await bot.send_message(message.from_user.id, 'Введите описание')\r\n\r\n\r\n#Ловим третий ответ\r\n# @dp.message_handler(state=FSMAdmin.description)\r\nasync def load_description(message: types.Message, state: FSMContext):\r\n    async with state.proxy() as data:\r\n        data['description'] = message.text\r\n    await FSMAdmin.next()\r\n    await bot.send_message(message.from_user.id, 'Теперь укажи цену')\r\n\r\n\r\n#Ловим четвертый ответ\r\n# @dp.message_handler(state=FSMAdmin.price)\r\nasync def load_price(message: types.Message,state: FSMContext):\r\n    async with state.proxy() as data:\r\n        data['price'] = float(message.text)\r\n    await sqlite_db.sql_add_command(state)\r\n    await state.finish()\r\n\r\n\r\n# @dp.message_handler(state=\"*\", commands=[\"Отмена\"])\r\n# @dp.message_handler(Text(equals='отмена',ignore_case=True),state=\"*\")\r\nasync def cancel_handler(message: types.Message, state: FSMContext):\r\n    current_state=await state.get_state()\r\n    if current_state is None:\r\n        return\r\n    await state.finish()\r\n    await bot.send_message(message.from_user.id, \"OK\")\r\n\r\n\r\n# async def empty(message: types.Message):\r\n#     if message.from_user.id == ID:\r\n#         await message.answer(\"Нет такой команды\")\r\n#         await message.delete()\r\n\r\n\r\n# @dp.callback_query_handler(lambda x: x.data and x.data.startswith('del '))\r\nasync def del_callback_run(callback_query: types.CallbackQuery):\r\n    await sqlite_db.sql_delete_command(callback_query.data.replace('del ',''))\r\n    await callback_query.answer(text=f'{callback_query.data.replace(\"del \",\"\")} удалена', show_alert=True)\r\n\r\n\r\n# @dp.message_handler(commands=\"Удалить\")\r\nasync def delete_item(message: types.Message):\r\n    if message.from_user.id == ID:\r\n        read = await sqlite_db.sql_read2()\r\n        for ret in read:\r\n            await bot.send_photo(message.from_user.id,ret[0],f'{ret[1]}\\nОписание: {ret[2]}\\nЦена {ret[-1]}')\r\n            await bot.send_message(message.from_user.id,reply_markup=InlineKeyboardMarkup().add(InlineKeyboardButton(f'Удалить {ret[1]}',callback_data=f'{ret[1]}')))\r\n\r\ndef register_handlers_admin(dp: Dispatcher):\r\n    dp.register_message_handler(cm_start, commands=[\"Загрузить\"], state=None)\r\n    dp.register_message_handler(cancel_handler, state=\"*\", commands=[\"Отмена\"])\r\n    dp.register_message_handler(cancel_handler, Text(equals='отмена', ignore_case=True), state=\"*\")\r\n    dp.register_message_handler(load_photo, content_types=['photo'], state=FSMAdmin.photo)\r\n    dp.register_message_handler(load_name, state=FSMAdmin.name)\r\n    dp.register_message_handler(load_description, state=FSMAdmin.description)\r\n    dp.register_message_handler(load_price, state=FSMAdmin.price)\r\n    dp.register_message_handler(make_changes_command, commands=['Модератор'])\r\n    dp.register_callback_query_handler(del_callback_run)\r\n    dp.register_message_handler(delete_item,commands='Удалить')\r\n\r\n    # dp.register_message_handler(empty,is_chat_admin=True)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/handlers/admin.py b/handlers/admin.py
+--- a/handlers/admin.py	(revision 2259267dc9b9c3c298e6b3c2b1991ac0159132c3)
++++ b/handlers/admin.py	(date 1648466056298)
+@@ -11,9 +11,9 @@
+ # ID = None
+ 
+ class FSMAdmin(StatesGroup):
+-    photo = State()
+     name = State()
+-    description = State()
++    photo = State()
++    # description = State()
+     price = State()
+ 
+ 
+@@ -27,10 +27,11 @@
+         # global ID
+         try:
+             await sqlite_db.sql_add_admin(message)
+-            await bot.send_message(message.from_user.id, "Что надо, Хозяин??",
+-                                   reply_markup=admin_kb.button_case_admin)
+-        except Exception:
+-            await message.reply("Вы уже являетесь Модератором")
++        except Exception:
++            await message.reply("Вы уже являетесь Модератором")
++
++        await bot.send_message(message.from_user.id, "Что надо, Хозяин??",
++                               reply_markup=admin_kb.button_case_admin)
+     except Exception:
+         await message.reply("Вы не являетесь Модератором")
+ 
+@@ -39,40 +40,42 @@
+ async def cm_start(message: types.Message):
+     admin = await sqlite_db.sql_show_admin_by_id(message)
+     if message.from_user.id == admin[0]:
+-        await FSMAdmin.photo.set()
+-        await bot.send_message(message.from_user.id, 'Загрузи фото')
++        await FSMAdmin.name.set()
++        await bot.send_message(message.from_user.id, 'Введи название')
++
+ 
+ #Ловим первый ответ
+ # @dp.message_handler(content_types=['photo'], state=FSMAdmin.photo)
+-async def load_photo(message: types.Message, state: FSMContext):
+-    async with state.proxy() as data:
+-        data['data'] = message.photo[0].file_id
+-    await FSMAdmin.next()
+-    await bot.send_message(message.from_user.id, 'Теперь введи название')
+-
+-#Ловим второй ответ
+-# @dp.message_handler(state=FSMAdmin.name)
+ async def load_name(message: types.Message, state: FSMContext):
+     async with state.proxy() as data:
+         data['name'] = message.text
+     await FSMAdmin.next()
+-    await bot.send_message(message.from_user.id, 'Введите описание')
++    await bot.send_message(message.from_user.id, 'Теперь загрузи фото')
+ 
+-
+-#Ловим третий ответ
+-# @dp.message_handler(state=FSMAdmin.description)
+-async def load_description(message: types.Message, state: FSMContext):
++# Ловим второй ответ
++# @dp.message_handler(state=FSMAdmin.name)
++async def load_photo(message: types.Message, state: FSMContext):
+     async with state.proxy() as data:
+-        data['description'] = message.text
++        data['data'] = message.photo[0].file_id
+     await FSMAdmin.next()
+     await bot.send_message(message.from_user.id, 'Теперь укажи цену')
+ 
+ 
++# #Ловим третий ответ
++# # @dp.message_handler(state=FSMAdmin.description)
++# async def load_description(message: types.Message, state: FSMContext):
++#     async with state.proxy() as data:
++#         data['description'] = message.text
++#     await FSMAdmin.next()
++#     await bot.send_message(message.from_user.id, 'Теперь укажи цену')
++
++
+ #Ловим четвертый ответ
+ # @dp.message_handler(state=FSMAdmin.price)
+ async def load_price(message: types.Message,state: FSMContext):
+     async with state.proxy() as data:
+-        data['price'] = float(message.text)
++        data['price'] = message.text+" руб."
++
+     await sqlite_db.sql_add_command(state)
+     await state.finish()
+ 
+@@ -101,21 +104,20 @@
+ 
+ # @dp.message_handler(commands="Удалить")
+ async def delete_item(message: types.Message):
+-    if message.from_user.id == ID:
+-        read = await sqlite_db.sql_read2()
+-        for ret in read:
+-            await bot.send_photo(message.from_user.id,ret[0],f'{ret[1]}\nОписание: {ret[2]}\nЦена {ret[-1]}')
+-            await bot.send_message(message.from_user.id,reply_markup=InlineKeyboardMarkup().add(InlineKeyboardButton(f'Удалить {ret[1]}',callback_data=f'{ret[1]}')))
++    read = await sqlite_db.sql_read2()
++    for ret in read:
++        await bot.send_photo(message.from_user.id,ret[0],f'{ret[1]}\nОписание: {ret[2]}\nЦена {ret[-1]}')
++        await bot.send_message(message.from_user.id,text="^^^",reply_markup=InlineKeyboardMarkup().add(InlineKeyboardButton(f'Удалить {ret[1]}',callback_data=f'{ret[1]}')))
+ 
+ def register_handlers_admin(dp: Dispatcher):
+     dp.register_message_handler(cm_start, commands=["Загрузить"], state=None)
+     dp.register_message_handler(cancel_handler, state="*", commands=["Отмена"])
+     dp.register_message_handler(cancel_handler, Text(equals='отмена', ignore_case=True), state="*")
+-    dp.register_message_handler(load_photo, content_types=['photo'], state=FSMAdmin.photo)
+     dp.register_message_handler(load_name, state=FSMAdmin.name)
+-    dp.register_message_handler(load_description, state=FSMAdmin.description)
++    dp.register_message_handler(load_photo, content_types=['photo'], state=FSMAdmin.photo)
++    # dp.register_message_handler(load_description, state=FSMAdmin.description)
+     dp.register_message_handler(load_price, state=FSMAdmin.price)
+-    dp.register_message_handler(make_changes_command, commands=['Модератор'])
++    dp.register_message_handler(make_changes_command, commands=['moderator_mode'])
+     dp.register_callback_query_handler(del_callback_run)
+     dp.register_message_handler(delete_item,commands='Удалить')
+ 
+Index: ParserMenu/parser.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ParserMenu/parser.py b/ParserMenu/parser.py
+new file mode 100644
+--- /dev/null	(date 1648464612985)
++++ b/ParserMenu/parser.py	(date 1648464612985)
+@@ -0,0 +1,58 @@
++import json
++import requests
++import lxml
++from bs4 import BeautifulSoup
++from DataBase import sqlite_db
++
++def get_first_menu_item():
++    headers = {
++        "user-agent": "user-agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Mobile Safari/537.36"
++    }
++    url = "https://xn--80aaac2aiu7bg5b9c.xn--p1ai/menu"
++    r = requests.get(url=url, headers=headers)
++
++    soup = BeautifulSoup(r.text, "lxml")
++    menu = soup.find_all("div", class_="menu-items-holder")
++
++    menu_dict = {}
++    for item in menu:
++        item = item.find_all("div", class_="catalogue__item")
++        for i in item:
++            i_name = i.find("div", class_="catalogue__item-title").text.strip()
++            i_price = str(i.find("div", class_="catalogue__item-price").text.strip()).replace("₽", "руб.")
++
++            i_photo_link_ = str(i.find("div", class_="catalogue__item-pic"))
++
++            i_photo_link = "https://забылисахар.рф" + i_photo_link_[i_photo_link_.find('(') + 1:i_photo_link_.find(')')]
++
++            i_photo_name= i_photo_link_[i_photo_link_.find('(') + 1:i_photo_link_.find(')')]
++            i_photo_name =i_photo_name[i_photo_name.rfind('/')+1:]
++
++            img_data = requests.get(i_photo_link, verify=False).content
++            with open('ParserMenu/pics/' + i_photo_name,'wb') as handler:
++                handler.write(img_data)
++
++            i_link_photo_id = i_photo_link.split("/")[-1]
++            i_link_photo_id = i_link_photo_id[:-5]
++
++            # print(f"{i_name} | {i_price} | {i_photo_link} | {i_link_photo_id}")
++            # print(f"{i_price}")
++            menu_dict[i_link_photo_id] = {
++                "name": i_name,
++                "price": i_price,
++                "photo_link": i_photo_link,
++                "photo_name":i_photo_name
++            }
++        # print(menu_dict)
++    print(menu_dict)
++
++    with open("./ParserMenu/menu_dict.json", "w", encoding='utf-8') as file:
++        json.dump(menu_dict, file, indent=4, ensure_ascii=False)
++    sqlite_db.sql_add_from_json()
++
++def main():
++    get_first_menu_item()
++
++
++if __name__ == '__main__':
++    main()
+Index: handlers/client.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from aiogram import types, Dispatcher\r\nfrom create_bot import dp, bot\r\nfrom KeyBoards import kb_client\r\nfrom aiogram.types import ReplyKeyboardRemove\r\nfrom DataBase import sqlite_db\r\n\r\n\r\nasync def commands_help(message: types.Message):\r\n    message_text1 = 'Вот, что умеет этот бот:\\n' \\\r\n                   + '/start - начало работы бота\\n' \\\r\n                   + '/Moderator - войти в режим модерации бота'\r\n    message_text2 = 'Небольшая инструкция:\\n'\\\r\n                    + 'После команды /start наш бот напишет вам в личные сообщения, но предварительно ему нужно написать любое сообщение!!!\\n\\n'\\\r\n                    + 'В диалоге с ботом появится клавиатура, со следующими командами: working_hours, geolocation, menu.\\n\\n'\\\r\n                    + 'Удачи!'\r\n    await bot.send_message(message.chat.id, message_text1)\r\n    await bot.send_message(message.chat.id, message_text2)\r\n\r\n# @dp.message_handler(commands=['start','help'])\r\nasync def commands_start(message: types.Message):\r\n    try:\r\n        await bot.send_message(message.from_user.id, 'Открывайте клавиатуру и командуйте\\U0001F972',reply_markup=kb_client)\r\n        await message.delete()\r\n    except:\r\n        await message.reply('Общение с ботом через ЛС, напишите ему:\\n@TRPP_123_bot')\r\n\r\n\r\n# @dp.message_handler(commands=['Режим_работы'])\r\nasync def pizza_open_command(message: types.Message):\r\n    await bot.send_message(message.from_user.id, 'Вс-Чт с 9:00 до 20:00, Пт-Сб с 10:00 До 23:00')\r\n\r\n\r\n# @dp.message_handler(commands=['Расположение'])\r\nasync def pizza_place_command(message: types.Message):\r\n    await bot.send_message(message.from_user.id, 'пр. Вернадского 78')\r\n\r\n\r\n# @dp.register_message_handler(commands=['Меню'])\r\nasync def pizza_menu_command(message: types.Message):\r\n    await sqlite_db.sql_read(message)\r\n\r\n\r\n\r\nasync def show_moderator(message: types.Message):\r\n    cur = await sqlite_db.sql_show_admins()\r\n    message_text = \"Аккаунты модераторов:\\n\"\r\n    for ret in cur:\r\n        message_text += f'@{ret[0]}\\n'\r\n    await message.answer(message_text)\r\n\r\n\r\n\r\ndef register_handlers_client(dp: Dispatcher):\r\n    dp.register_message_handler(commands_start, commands=['start'])\r\n    dp.register_message_handler(commands_help, commands=['help'])\r\n    dp.register_message_handler(pizza_open_command, commands=['working_hours'])\r\n    dp.register_message_handler(pizza_place_command,commands=['geolocation'])\r\n    dp.register_message_handler(pizza_menu_command,commands=['menu'])\r\n    dp.register_message_handler(show_moderator,commands=['contact_us'])\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/handlers/client.py b/handlers/client.py
+--- a/handlers/client.py	(revision 2259267dc9b9c3c298e6b3c2b1991ac0159132c3)
++++ b/handlers/client.py	(date 1648464372098)
+@@ -1,14 +1,19 @@
++import os
++
+ from aiogram import types, Dispatcher
+ from create_bot import dp, bot
+ from KeyBoards import kb_client
+ from aiogram.types import ReplyKeyboardRemove
+ from DataBase import sqlite_db
++import json
++
+ 
+ 
+ async def commands_help(message: types.Message):
+     message_text1 = 'Вот, что умеет этот бот:\n' \
+                    + '/start - начало работы бота\n' \
+-                   + '/Moderator - войти в режим модерации бота'
++                   + '/moderators - список модераторов бота\n'\
++                   + '/moderator_mode - войти в режим модерации бота'
+     message_text2 = 'Небольшая инструкция:\n'\
+                     + 'После команды /start наш бот напишет вам в личные сообщения, но предварительно ему нужно написать любое сообщение!!!\n\n'\
+                     + 'В диалоге с ботом появится клавиатура, со следующими командами: working_hours, geolocation, menu.\n\n'\
+@@ -48,6 +53,17 @@
+         message_text += f'@{ret[0]}\n'
+     await message.answer(message_text)
+ 
++async def show_menu(message: types.Message):
++    with open('./ParserMenu/menu_dict.json', encoding="utf-8") as file:
++        menu_dict= json.load(file)
++
++        for k, v in menu_dict.items():
++            photo=v['photo_name']
++            photopath = open("./ParserMenu/pics/"+photo,'rb')
++            menu = f"{v['name']}\n{v['price']}\n\n"
++            await bot.send_photo(message.from_user.id,photopath, menu)
++
++
+ 
+ 
+ def register_handlers_client(dp: Dispatcher):
+@@ -56,4 +72,5 @@
+     dp.register_message_handler(pizza_open_command, commands=['working_hours'])
+     dp.register_message_handler(pizza_place_command,commands=['geolocation'])
+     dp.register_message_handler(pizza_menu_command,commands=['menu'])
+-    dp.register_message_handler(show_moderator,commands=['contact_us'])
++    dp.register_message_handler(show_moderator,commands=['moderators'])
++    dp.register_message_handler(show_menu, commands=['show_menu'])
+Index: DataBase/sqlite_db.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import sqlite3 as sq\r\nfrom create_bot import bot\r\n\r\ndef sql_start():\r\n    global base, cur\r\n    base = sq.connect('pizza_cool.db')\r\n    cur = base.cursor()\r\n    if base:\r\n        print('Data base connected')\r\n    base.execute('CREATE TABLE IF NOT EXISTS menu(img TEXT,name TEXT PRIMARY KEY,description TEXT, price TEXT)')\r\n    base.execute('CREATE TABLE IF NOT EXISTS admins(name TEXT ,id INT PRIMARY KEY)')\r\n    base.commit()\r\n\r\nasync def sql_add_admin(message):\r\n    cur.execute('INSERT INTO admins VALUES (?,?)', (message.from_user.username, message.from_user.id))\r\n    base.commit()\r\n\r\nasync def sql_show_admins():\r\n    return cur.execute('SELECT * FROM admins').fetchall()\r\n\r\nasync def sql_show_admin_by_id(message):\r\n    return cur.execute('SELECT id FROM admins WHERE name==?',(message.from_user.username,)).fetchone()\r\n\r\nasync def sql_add_command(state):\r\n    async with state.proxy() as data:\r\n        cur.execute('INSERT INTO menu VALUES (?,?,?,?)',tuple(data.values()))\r\n        base.commit()\r\n\r\nasync def sql_read(message):\r\n    if len(cur.execute('SELECT * FROM menu').fetchall())==0:\r\n       await bot.send_message(message.from_user.id,'Меню пустое')\r\n    for ret in cur.execute('SELECT * FROM menu').fetchall():\r\n        await bot.send_photo(message.from_user.id, ret[0], f'{ret[1]}\\nОписание: {ret[2]}\\nЦена {ret[-1]}')\r\n\r\n\r\nasync def sql_read2():\r\n    return cur.execute('SELECT * FROM menu').fetchall()\r\n\r\n\r\n\r\nasync def sql_delete_command(data):\r\n    cur.execute('DELETE FROM menu WHERE name == ?', (data,))\r\n    base.commit()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/DataBase/sqlite_db.py b/DataBase/sqlite_db.py
+--- a/DataBase/sqlite_db.py	(revision 2259267dc9b9c3c298e6b3c2b1991ac0159132c3)
++++ b/DataBase/sqlite_db.py	(date 1648468147655)
+@@ -1,13 +1,13 @@
+ import sqlite3 as sq
+ from create_bot import bot
+-
++import json
+ def sql_start():
+     global base, cur
+     base = sq.connect('pizza_cool.db')
+     cur = base.cursor()
+     if base:
+         print('Data base connected')
+-    base.execute('CREATE TABLE IF NOT EXISTS menu(img TEXT,name TEXT PRIMARY KEY,description TEXT, price TEXT)')
++    base.execute('CREATE TABLE IF NOT EXISTS menu(name TEXT ,img TEXT PRIMARY KEY , price TEXT)')
+     base.execute('CREATE TABLE IF NOT EXISTS admins(name TEXT ,id INT PRIMARY KEY)')
+     base.commit()
+ 
+@@ -23,14 +23,24 @@
+ 
+ async def sql_add_command(state):
+     async with state.proxy() as data:
+-        cur.execute('INSERT INTO menu VALUES (?,?,?,?)',tuple(data.values()))
++        cur.execute('INSERT INTO menu VALUES (?,?,?)',tuple(data.values()))
+         base.commit()
+ 
++def sql_add_from_json():
++    with open('./ParserMenu/menu_dict.json', encoding="utf-8") as file:
++        menu_dict = json.load(file)
++        for k, v in menu_dict.items():
++            cur.execute('INSERT INTO menu VALUES (?,?,?)',(str(v['name']),str(v['photo_name']),str(v['price'])))
++    base.commit()
+ async def sql_read(message):
+     if len(cur.execute('SELECT * FROM menu').fetchall())==0:
+        await bot.send_message(message.from_user.id,'Меню пустое')
+     for ret in cur.execute('SELECT * FROM menu').fetchall():
+-        await bot.send_photo(message.from_user.id, ret[0], f'{ret[1]}\nОписание: {ret[2]}\nЦена {ret[-1]}')
++        if str(ret[1]).find('.')!=-1 :
++            photopath = open("./ParserMenu/pics/" + ret[1], 'rb')
++        else:
++            photopath = ret[1]
++        await bot.send_photo(message.from_user.id, photopath, f'{i}{ret[0]}\nЦена {ret[-1]}')
+ 
+ 
+ async def sql_read2():
+Index: KeyBoards/client_kb.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove\r\n\r\nb1 = KeyboardButton('/working_hours')\r\nb2 = KeyboardButton('/geolocation')\r\nb3 = KeyboardButton('/menu')\r\nb4 = KeyboardButton('/contact_us')\r\n# b4 = KeyboardButton('Поделиться номером', request_contact=True)\r\n# b5 = KeyboardButton('Поделиться расположением', request_location=True)\r\n\r\n\r\nkb_client = ReplyKeyboardMarkup(resize_keyboard=True)\r\n\r\nkb_client.add(b1).row(b2, b3).row(b4)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/KeyBoards/client_kb.py b/KeyBoards/client_kb.py
+--- a/KeyBoards/client_kb.py	(revision 2259267dc9b9c3c298e6b3c2b1991ac0159132c3)
++++ b/KeyBoards/client_kb.py	(date 1648458559923)
+@@ -3,7 +3,7 @@
+ b1 = KeyboardButton('/working_hours')
+ b2 = KeyboardButton('/geolocation')
+ b3 = KeyboardButton('/menu')
+-b4 = KeyboardButton('/contact_us')
++b4 = KeyboardButton('/moderator_mode')
+ # b4 = KeyboardButton('Поделиться номером', request_contact=True)
+ # b5 = KeyboardButton('Поделиться расположением', request_location=True)
+ 

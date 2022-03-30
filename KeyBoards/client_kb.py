@@ -1,3 +1,8 @@
+"""
+client_kb.py
+====================================
+The module with client Keyboard
+"""
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 
 b1 = KeyboardButton('/working_hours')

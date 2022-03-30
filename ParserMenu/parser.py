@@ -1,3 +1,8 @@
+"""
+parser.py
+====================================
+The module for parse web document to json file
+"""
 import json
 import requests
 import lxml
@@ -5,6 +10,9 @@ from bs4 import BeautifulSoup
 from DataBase import sqlite_db
 
 def get_first_menu_item():
+    """
+    Parsing divs from site into dictionary,then convert it into json file
+    """
     headers = {
         "user-agent": "user-agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Mobile Safari/537.36"
     }
@@ -52,6 +60,9 @@ def get_first_menu_item():
     sqlite_db.sql_add_from_json()
 
 def main():
+    """
+    Running parse function
+    """
     get_first_menu_item()
 
 
