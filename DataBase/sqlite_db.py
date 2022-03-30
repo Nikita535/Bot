@@ -3,7 +3,7 @@ from create_bot import bot
 import json
 def sql_start():
     global base, cur
-    base = sq.connect('pizza_cool.db')
+    base = sq.connect('./DataBase/rest_cool.db')
     cur = base.cursor()
     if base:
         print('Data base connected')

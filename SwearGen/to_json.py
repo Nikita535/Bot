@@ -8,5 +8,5 @@ with open('Swear.txt', encoding='utf-8') as r:
         if n !='':
             ar.append(n)
 
-with open('../Swear.json', 'w', encoding='utf-8') as e:
+with open('../SwearGen/Swear.json', 'w', encoding='utf-8') as e:
     json.dump(ar,e)
